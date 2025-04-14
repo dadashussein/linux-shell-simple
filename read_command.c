@@ -6,15 +6,16 @@
  */
 char *read_command(void)
 {
-	char *line = NULL;
-	char *prompt = "$ ~";
-	size_t line_size = 0;
-	printf("%s ", prompt);
-	if (getline(&line, &line_size, stdin) == -1)
-	{
-		free(line);
-		return (NULL);
-	}
+    char *line = NULL;
+    char *prompt = "\033[1;32m$ goldenpay ~\033[0m"; /* Green bold prompt */
+    size_t line_size = 0;
+    
+    printf("%s ", prompt);
+    if (getline(&line, &line_size, stdin) == -1)
+    {
+        free(line);
+        return (NULL);
+    }
 
-	return (line);
+    return (line);
 }
